@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 
 class App extends Component {
+  // State -- Add/Set
   constructor(props) {
     super(props);
     // state is always an object, such as a string, number, or another object
     this.state = {
-      deadline: 'December 15, 2017' 
+      deadline: 'December 15, 2017'
     }
+  }
+
+  // State -- Update
+  changeDeadline() {
+    // use React's setState method, to pass an entirely new object with a 
+    // key value pair that we would like to update
+    this.setState({deadline: 'November 25, 2017'})
   }
 
   render() {
@@ -23,7 +31,7 @@ class App extends Component {
         </div>
         <div>
           <input placeholder='new date'/>
-          <button>Submit</button>
+          <button onClick={() => this.changeDeadline()}>Submit</button>
         </div>
       </div>
     )

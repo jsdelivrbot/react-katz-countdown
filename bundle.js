@@ -19794,6 +19794,7 @@
 	var App = function (_Component) {
 	  _inherits(App, _Component);
 
+	  // State -- Add/Set
 	  function App(props) {
 	    _classCallCheck(this, App);
 
@@ -19806,9 +19807,21 @@
 	    return _this;
 	  }
 
+	  // State -- Update
+
+
 	  _createClass(App, [{
+	    key: 'changeDeadline',
+	    value: function changeDeadline() {
+	      // use React's setState method, to pass an entirely new object with a 
+	      // key value pair that we would like to update
+	      this.setState({ deadline: 'November 25, 2017' });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'App' },
@@ -19848,7 +19861,9 @@
 	          _react2.default.createElement('input', { placeholder: 'new date' }),
 	          _react2.default.createElement(
 	            'button',
-	            null,
+	            { onClick: function onClick() {
+	                return _this2.changeDeadline();
+	              } },
 	            'Submit'
 	          )
 	        )
