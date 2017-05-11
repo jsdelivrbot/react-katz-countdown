@@ -6,15 +6,15 @@ class App extends Component {
     super(props);
     // state is always an object, such as a string, number, or another object
     this.state = {
-      deadline: 'December 15, 2017'
+      deadline: 'December 15, 2017',
+      newDeadline: ''
     }
   }
 
   // State -- Update
   changeDeadline() {
-    // use React's setState method, to pass an entirely new object with a 
-    // key value pair that we would like to update
-    this.setState({deadline: 'November 25, 2017'})
+    // Set deadline, to newDeadline within the State (see below <input>)
+    this.setState({deadline: this.state.newDeadline});
   }
 
   render() {
@@ -30,8 +30,13 @@ class App extends Component {
           <div className="Clock-seconds">20 seconds</div>
         </div>
         <div>
-          <input placeholder='new date'/>
-          <button onClick={() => this.changeDeadline()}>Submit</button>
+          <input 
+            placeholder='new date'
+            onChange={event => this.setState({newDeadline: event.target.value})}
+          />
+          <button onClick={() => this.changeDeadline()}>
+            Submit
+          </button>
         </div>
       </div>
     )

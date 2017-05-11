@@ -19802,7 +19802,8 @@
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
 	    _this.state = {
-	      deadline: 'December 15, 2017'
+	      deadline: 'December 15, 2017',
+	      newDeadline: ''
 	    };
 	    return _this;
 	  }
@@ -19813,9 +19814,8 @@
 	  _createClass(App, [{
 	    key: 'changeDeadline',
 	    value: function changeDeadline() {
-	      // use React's setState method, to pass an entirely new object with a 
-	      // key value pair that we would like to update
-	      this.setState({ deadline: 'November 25, 2017' });
+	      // Set deadline, to newDeadline within the State (see below <input>)
+	      this.setState({ deadline: this.state.newDeadline });
 	    }
 	  }, {
 	    key: 'render',
@@ -19858,7 +19858,12 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
-	          _react2.default.createElement('input', { placeholder: 'new date' }),
+	          _react2.default.createElement('input', {
+	            placeholder: 'new date',
+	            onChange: function onChange(event) {
+	              return _this2.setState({ newDeadline: event.target.value });
+	            }
+	          }),
 	          _react2.default.createElement(
 	            'button',
 	            { onClick: function onClick() {
