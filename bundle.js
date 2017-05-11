@@ -19835,7 +19835,9 @@
 	          'Countdown to ',
 	          this.state.deadline
 	        ),
-	        _react2.default.createElement(_Clock2.default, null),
+	        _react2.default.createElement(_Clock2.default, {
+	          deadline: this.state.deadline
+	        }),
 	        _react2.default.createElement(
 	          'div',
 	          null,
@@ -19866,7 +19868,7 @@
 /* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -19904,34 +19906,47 @@
 	  }
 
 	  _createClass(Clock, [{
-	    key: "render",
+	    key: 'getTimeUntil',
+	    value: function getTimeUntil(deadline) {
+	      var time = Date.parse(deadline) - Date.parse(new Date());
+	      console.log('time', time);
+	      var seconds = Math.floor(time / 1000 % 60);
+	      var minutes = Math.floor(time / 1000 / 60 % 60);
+	      var hours = Math.floor(time / (1000 * 60 * 60) % 24);
+	      var days = Math.floor(time / (1000 * 60 * 60 * 24));
+
+	      console.log('seconds', seconds, 'minutes', minutes, 'hours', hours, 'days', days);
+	    }
+	  }, {
+	    key: 'render',
 	    value: function render() {
+	      this.getTimeUntil(this.props.deadline);
 	      return _react2.default.createElement(
-	        "div",
+	        'div',
 	        null,
 	        _react2.default.createElement(
-	          "div",
-	          { className: "Clock-days" },
+	          'div',
+	          { className: 'Clock-days' },
 	          this.state.days,
-	          " days"
+	          ' days'
 	        ),
 	        _react2.default.createElement(
-	          "div",
-	          { className: "Clock-hours" },
+	          'div',
+	          { className: 'Clock-hours' },
 	          this.state.hours,
-	          " hours"
+	          ' hours'
 	        ),
 	        _react2.default.createElement(
-	          "div",
-	          { className: "Clock-minutes" },
+	          'div',
+	          { className: 'Clock-minutes' },
 	          this.state.minutes,
-	          " minutes"
+	          ' minutes'
 	        ),
 	        _react2.default.createElement(
-	          "div",
-	          { className: "Clock-seconds" },
+	          'div',
+	          { className: 'Clock-seconds' },
 	          this.state.seconds,
-	          " seconds"
+	          ' seconds'
 	        )
 	      );
 	    }
