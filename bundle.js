@@ -19771,7 +19771,7 @@
 /* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -19801,48 +19801,48 @@
 	  }
 
 	  _createClass(App, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
-	        null,
+	        "div",
+	        { className: "App" },
 	        _react2.default.createElement(
-	          'div',
-	          null,
-	          'Countdown to December 25, 2017'
+	          "div",
+	          { className: "App-title" },
+	          "Countdown to December 25, 2017"
 	        ),
 	        _react2.default.createElement(
-	          'div',
+	          "div",
 	          null,
 	          _react2.default.createElement(
-	            'div',
-	            null,
-	            '14 days'
+	            "div",
+	            { className: "Clock-days" },
+	            "14 days"
 	          ),
 	          _react2.default.createElement(
-	            'div',
-	            null,
-	            '30 hours'
+	            "div",
+	            { className: "Clock-hours" },
+	            "30 hours"
 	          ),
 	          _react2.default.createElement(
-	            'div',
-	            null,
-	            '15 minutes'
+	            "div",
+	            { className: "Clock-minutes" },
+	            "15 minutes"
 	          ),
 	          _react2.default.createElement(
-	            'div',
-	            null,
-	            '20 seconds'
+	            "div",
+	            { className: "Clock-seconds" },
+	            "20 seconds"
 	          )
 	        ),
 	        _react2.default.createElement(
-	          'div',
+	          "div",
 	          null,
-	          _react2.default.createElement('input', { placeholder: 'new date' }),
+	          _react2.default.createElement("input", { placeholder: "new date" }),
 	          _react2.default.createElement(
-	            'button',
+	            "button",
 	            null,
-	            'Submit'
+	            "Submit"
 	          )
 	        )
 	      );
