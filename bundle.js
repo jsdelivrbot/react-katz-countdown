@@ -19771,7 +19771,7 @@
 /* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -19794,55 +19794,62 @@
 	var App = function (_Component) {
 	  _inherits(App, _Component);
 
-	  function App() {
+	  function App(props) {
 	    _classCallCheck(this, App);
 
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    // state is always an object, such as a string, number, or another object
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+	    _this.state = {
+	      deadline: 'December 15, 2017'
+	    };
+	    return _this;
 	  }
 
 	  _createClass(App, [{
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "App" },
+	        'div',
+	        { className: 'App' },
 	        _react2.default.createElement(
-	          "div",
-	          { className: "App-title" },
-	          "Countdown to December 25, 2017"
+	          'div',
+	          { className: 'App-title' },
+	          'Countdown to ',
+	          this.state.deadline
 	        ),
 	        _react2.default.createElement(
-	          "div",
+	          'div',
 	          null,
 	          _react2.default.createElement(
-	            "div",
-	            { className: "Clock-days" },
-	            "14 days"
+	            'div',
+	            { className: 'Clock-days' },
+	            '14 days'
 	          ),
 	          _react2.default.createElement(
-	            "div",
-	            { className: "Clock-hours" },
-	            "30 hours"
+	            'div',
+	            { className: 'Clock-hours' },
+	            '30 hours'
 	          ),
 	          _react2.default.createElement(
-	            "div",
-	            { className: "Clock-minutes" },
-	            "15 minutes"
+	            'div',
+	            { className: 'Clock-minutes' },
+	            '15 minutes'
 	          ),
 	          _react2.default.createElement(
-	            "div",
-	            { className: "Clock-seconds" },
-	            "20 seconds"
+	            'div',
+	            { className: 'Clock-seconds' },
+	            '20 seconds'
 	          )
 	        ),
 	        _react2.default.createElement(
-	          "div",
+	          'div',
 	          null,
-	          _react2.default.createElement("input", { placeholder: "new date" }),
+	          _react2.default.createElement('input', { placeholder: 'new date' }),
 	          _react2.default.createElement(
-	            "button",
+	            'button',
 	            null,
-	            "Submit"
+	            'Submit'
 	          )
 	        )
 	      );
