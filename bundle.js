@@ -19806,7 +19806,45 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'Coundown Champ, App Component'
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          'Countdown to December 25, 2017'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            '14 days'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            '30 hours'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            '15 minutes'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            '20 seconds'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement('input', { placeholder: 'new date' }),
+	          _react2.default.createElement(
+	            'button',
+	            null,
+	            'Submit'
+	          )
+	        )
 	      );
 	    }
 	  }]);
