@@ -19906,46 +19906,71 @@
 	  }
 
 	  _createClass(Clock, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      /* PROPS: Deadline: can use because was passed from parent App.jsx via props
+	       * in the JSX for Clock via <Clock via deadline={this.state.deadline} /> */
+	      // New variable getTimeUntil by grabbing <input> entered date from 'deadline'
+	      this.getTimeUntil(this.props.deadline);
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      // After mounted, run this...
+	      setInterval(function () {
+	        return _this2.getTimeUntil(_this2.props.deadline);
+	      }, 1000);
+	    }
+
+	    // not "mounting" but added to this code anyway...
+
+	  }, {
+	    key: 'leading0',
+	    value: function leading0(num) {
+	      return num < 10 ? '0' + num : num;
+	    }
+	  }, {
 	    key: 'getTimeUntil',
 	    value: function getTimeUntil(deadline) {
 	      var time = Date.parse(deadline) - Date.parse(new Date());
-	      console.log('time', time);
 	      var seconds = Math.floor(time / 1000 % 60);
 	      var minutes = Math.floor(time / 1000 / 60 % 60);
 	      var hours = Math.floor(time / (1000 * 60 * 60) % 24);
 	      var days = Math.floor(time / (1000 * 60 * 60 * 24));
 
-	      console.log('seconds', seconds, 'minutes', minutes, 'hours', hours, 'days', days);
+	      // Update State
+	      this.setState({ days: days, seconds: seconds, minutes: minutes, hours: hours });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      this.getTimeUntil(this.props.deadline);
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'Clock-days' },
-	          this.state.days,
+	          this.leading0(this.state.days),
 	          ' days'
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'Clock-hours' },
-	          this.state.hours,
+	          this.leading0(this.state.hours),
 	          ' hours'
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'Clock-minutes' },
-	          this.state.minutes,
+	          this.leading0(this.state.minutes),
 	          ' minutes'
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'Clock-seconds' },
-	          this.state.seconds,
+	          this.leading0(this.state.seconds),
 	          ' seconds'
 	        )
 	      );
